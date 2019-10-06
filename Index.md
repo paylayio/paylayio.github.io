@@ -8,7 +8,7 @@ PayLay is striving to be technology-agnostic so that you can continue using your
 The PayLay ecosystem consists of 3 core applications.
 
 ### PaymentServer
-The PayLay _PaymentServer_ application is a middleware for your eCommerce platform. Your eCommerce platform only needs to talks to the PaymentServer, which will then perform the heavy lifting of handling various eCommerce operations. This way, you can develop eCommerce processes before you have chosen a specific Payment Service Provider, easily switch to another Payment Service Provider without making code changes to your eCommerce platform, or support multiple Payment Service Providers.
+The PayLay _PaymentServer_ application is a middleware for your eCommerce platform. Your eCommerce platform only needs to talk to the PaymentServer, which will then perform the heavy lifting of handling various eCommerce operations. This way, you can develop eCommerce processes before you have chosen a specific Payment Service Provider, easily switch to another Payment Service Provider without making code changes to your eCommerce platform, or support multiple Payment Service Providers.
 
 [More about the PaymentServer](PaymentServer.md)
 
