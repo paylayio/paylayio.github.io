@@ -19,6 +19,7 @@ The PayLay _Management Studio_ is an application for managing various configurat
 
 ### IdentityServer
 ![alt text](http://wiki.openid.net/f/openid-logo-wordmark.png "OpenID Connect logo")
+
 The PayLay _IdentityServer_ is responsible for OpenID Connect authentication and authorization and grants your organisation's users access to the [Management Studio](ManagementStudio.md), as well as issuing access tokens in order for the Management Studio to access the PaymentServer.
 
 You are encouraged to use your organisation's existing OpenID Connect provider for this purpose.
