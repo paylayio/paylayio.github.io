@@ -69,6 +69,7 @@ PayLay comes with a Management Studio application that allows you to configure P
 The Community and Enterprise Edition of the PaymentServer are identical. The only difference is in the support of various database providers.
 
 ### Supported Databases
+
 | Feature           | Community | Enterprise     |
 |-------------------|-----------|----------------|
 | In-Memory         | ✔️️        | ️-              |

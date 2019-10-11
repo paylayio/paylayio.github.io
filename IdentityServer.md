@@ -37,6 +37,7 @@ docker instruction will follow soon
 At the moment, PayLay only offers a Community Edition of the IdentityServer.
 
 ### Supported Databases
+
 | Feature           | Community |
 |-------------------|-----------|
 | In-Memory         | ✔️️        |
