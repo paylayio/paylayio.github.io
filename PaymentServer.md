@@ -4,7 +4,7 @@ PaymentServer
 ## How it works
 The PaymentServer exposes a REST API. This is the single API interface to which your eCommerce platform(s) will talk to.
 
-A swagger endpoint is available and accessable from `localhost`.
+A swagger endpoint is available and accessible from `localhost`.
 
 ## Features
 
