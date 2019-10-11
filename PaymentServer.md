@@ -72,7 +72,7 @@ The Community and Enterprise Edition of the PaymentServer are identical. The onl
 
 | Feature           | Community | Enterprise     |
 |-------------------|-----------|----------------|
-| In-Memory         | ✔️️        | ️-              |
+| In-Memory         | ✔️️        | -              |
 | Sqlite            | ✔️️️️️        | -              |
 | MySql             | -         | ✔️️             |
 | Sql Server        | -         | ✔️️             |
