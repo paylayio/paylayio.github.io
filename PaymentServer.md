@@ -2,9 +2,9 @@ PaymentServer
 =============
 
 ## How it works
-The PaymentServer exposes a REST API. This is the API to which your eCommerce platform(s) will talk to.
+The PaymentServer exposes a REST API. This is the single API interface to which your eCommerce platform(s) will talk to.
 
-A swagger endpoint is available.
+A swagger endpoint is available and accessable from `localhost`.
 
 ## Features
 
@@ -35,19 +35,11 @@ You can define payment routes for the following purposes:
 ## Prerequisites
 
 ### Database Server
-The PaymentServer requires a database server to create a database in order to persist configuration and operational data. Currently, the following databases are supported:
-- MySql
-- Sql Server
-- Sqlite (for _Development_ purposes only!)
+The PaymentServer requires a database server to create a database in order to persist configuration and operational data.
 
 Each new version of the PaymentServer may come with small changes in the database scheme. These changes are applied automatically when you run the PaymentServer update.
 
-In the near future, we will add support for more database engines:
-- Azure Cosmos
-- PostgreSQL
-- Firebird
-- Oracle DB 11.2+
-- Db2
+[Supported Databases](#Supported-Databases)
 
 ### Reverse Proxy
 The PaymentServer is meant to run in your internal network and should **only** have the `Webhook` endpoint exposed to the Internet in order to reduce the attack surface. Therefore, it needs to be placed behind a Reverse Proxy web server.
@@ -72,3 +64,19 @@ The PaymentServer requires an OpenID Connect Provider for authentication and tok
 
 ### Management Studio
 PayLay comes with a Management Studio application that allows you to configure Payment Service Provider connectors, payment routing, etc. as well as viewing aggregated statistics, performing refunds, etc.
+
+## Community vs Enterprise
+The Community and Enterprise Edition of the PaymentServer are identical. The only difference is in the support of various database providers.
+
+### Supported Databases
+| Feature           | Community | Enterprise     |
+|-------------------|-----------|----------------|
+| In-Memory         | ✔️️        | ️-              |
+| Sqlite            | ✔️️️️️        | -              |
+| MySql             | -         | ✔️️             |
+| Sql Server        | -         | ✔️️             |
+| Azure Cosmos      | -         | Future release |
+| PostgreSQL        | -         | Future release |
+| Firebird          | -         | Future release |
+| Oracle DB 11.2+   | -         | Future release |
+| Db2               | -         | Future release |
