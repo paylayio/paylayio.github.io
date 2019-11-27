@@ -1,3 +1,5 @@
 remote_theme: pmarsceill/just-the-docs
 
 logo: "/images/paylay-logo-100x100.png"
+
+footer_content: "Copyright &copy; 2019 PAYLAY International B.V."
