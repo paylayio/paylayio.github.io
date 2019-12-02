@@ -60,10 +60,10 @@ Instructions will follow
 ~~~
 
 ### OpenID Connect Provider
-The PaymentServer requires an OpenID Connect Provider for authentication and token issuance. PayLay offers a barebones IdentityServer that can easily be deployed in your Development environment. We recommend that you use your existing OpenID Connect provider and authorization server instead.
+The PaymentServer requires an OpenID Connect Provider for authentication and token issuance. PAYLAY offers a barebones IdentityServer that can easily be deployed in your Development environment. We recommend that you use your existing OpenID Connect provider and authorization server instead.
 
-### Management Studio
-PayLay comes with a Management Studio application that allows you to configure Payment Service Provider connectors, payment routing, etc. as well as viewing aggregated statistics, performing refunds, etc.
+### Dashboard
+PAYLAY comes with a Dashboard application that allows you to configure Payment Service Provider connectors, payment routing, etc. as well as viewing aggregated statistics, performing refunds, etc.
 
 ## Community vs Enterprise
 The Community and Enterprise Edition of the PaymentServer are identical. The only difference is in the support of various database providers.
