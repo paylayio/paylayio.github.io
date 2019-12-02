@@ -28,7 +28,7 @@ This barebones IdentityServer is currently only meant to bootstrap your developm
 [More about the IdentityServer](IdentityServer.md)
 
 ### More apps
-In the future, more apps will become available in the PayLay ecosystem to support the following areas:
+In the future, more apps will become available in the PAYLAY ecosystem to support the following areas:
 - Business Intelligence
 - Subscription
 - PSD2
