@@ -2,7 +2,7 @@ PaymentServer
 =============
 
 ## How it works
-The PaymentServer exposes a [REST API](/paymentserver/rest-api.md). This is the single API interface to which your eCommerce platform(s) will talk to.
+The PaymentServer exposes a [REST API](rest-api.md). This is the single API interface to which your eCommerce platform(s) will talk to.
 
 A swagger endpoint is available and accessible from `localhost`.
 
