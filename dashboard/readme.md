@@ -11,8 +11,8 @@ The Dashboard is a front-end application that allows you to interact with the [P
 ### Configure Payment Routing
 
 ## Prerequisites
-- [PaymentServer](PaymentServer.md)
-- The [IdentityServer](IdentityServer.md) application is required for authentication. You are free to substitute IdentityServer with any OpenID Connect Provider.
+- The [PaymentServer](/paymentserver/readme.md) exposes private endpoints that allows the Dashboard to create, read, update, and delete data.
+- The [IdentityServer](/identityserver/readme.md) application is required for authentication, as well as issuing tokens for accessing the aforementioned private endpoints. You are free to substitute [IdentityServer](/identityserver/readme.md) with any OpenID Connect and OAuth2.0 Provider.
 
 ## Download
 Pull the image from Docker:
@@ -28,4 +28,4 @@ docker instruction will follow soon
 ~~~
 
 ## Community vs Enterprise
-The Community and Enterprise Edition of the PaymentServer are identical. The only difference is in the support of various database providers.
+More information will follow

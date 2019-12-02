@@ -2,7 +2,7 @@ PaymentServer
 =============
 
 ## How it works
-The PaymentServer exposes a REST API. This is the single API interface to which your eCommerce platform(s) will talk to.
+The PaymentServer exposes a [REST API](/paymentserver/rest-api.md). This is the single API interface to which your eCommerce platform(s) will talk to.
 
 A swagger endpoint is available and accessible from `localhost`.
 
@@ -39,10 +39,10 @@ The PaymentServer requires a database server to create a database in order to pe
 
 Each new version of the PaymentServer may come with small changes in the database scheme. These changes are applied automatically when you run the PaymentServer update.
 
-[Supported Databases](#Supported-Databases)
+[Supported Databases](#supported-databases)
 
 ### Reverse Proxy
-The PaymentServer is meant to run in your internal network and should **only** have the `Webhook` endpoint exposed to the Internet in order to reduce the attack surface. Therefore, it needs to be placed behind a Reverse Proxy web server.
+The PaymentServer is meant to run in your internal network and should **only** have the `Webhook` endpoint exposed to the Internet in order to receive payment webhooks from Payment Service Providers, and to reduce the attack surface. Therefore, it needs to be placed behind a Reverse Proxy web server.
 
 #### Apache
 ~~~
@@ -81,3 +81,5 @@ The Community and Enterprise Edition of the PaymentServer are identical. The onl
 | Firebird          | -         | Future release |
 | Oracle DB 11.2+   | -         | Future release |
 | Db2               | -         | Future release |
+
+## More resources
