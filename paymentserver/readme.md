@@ -8,8 +8,10 @@ A swagger endpoint is available and accessible from `localhost`.
 
 ## Features
 
-### Checkout
-Your application sends a checkout request to the PaymentServer, which will then translate the request into one that can be understood by the Payment Service Provider.
+### Middleware
+Your application sends an API request to the PaymentServer, which will then translate the request into one that can be understood by the Payment Service Provider.
+
+See a list of [Supported Payment Providers](supported-payment-providers.md).
 
 ### Webhook handling
 The PaymentServer will handle incoming webhooks sent by various Payment Service Provider(s).
