@@ -11,7 +11,7 @@ The Dashboard is a front-end application that allows you to interact with the [P
 ### Configure Payment Routing
 
 ## Prerequisites
-- The [PaymentServer](PaymentServer.md) is required in order for the Dashboard to fetch payment statistics and configure
+- [PaymentServer](PaymentServer.md)
 - The [IdentityServer](IdentityServer.md) application is required for authentication. You are free to substitute IdentityServer with any OpenID Connect Provider.
 
 ## Download
