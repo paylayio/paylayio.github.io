@@ -15,7 +15,7 @@ The PAYLAY _PaymentServer_ application is a middleware for your eCommerce platfo
 ### Dashboard
 The PAYLAY _Dashboard_ is an application for managing various configurations, viewing aggregated payment statistics, and performing various eCommerce related operations.
 
-[More about the Dashboard](dashboard.md)
+[More about the Dashboard](Dashboard.md)
 
 ### IdentityServer
 ![alt text](http://wiki.openid.net/f/openid-logo-wordmark.png "OpenID Connect logo")
