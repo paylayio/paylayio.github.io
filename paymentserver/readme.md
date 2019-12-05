@@ -2,7 +2,12 @@ PaymentServer
 =============
 
 ## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
 {:toc}
+
+---
 
 ## How it works
 The PaymentServer exposes a [REST API](rest-api.md). This is the single API interface to which your eCommerce platform(s) will talk to.
