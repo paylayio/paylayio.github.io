@@ -7,5 +7,6 @@ The following Payment Providers are supported by the [Payment Server](readme.md)
 | 2000charge              | n/a               | ✔️️
 | Alternative Payments    | n/a               | ✔️️
 | ING KassaCompleet       | n/a               | ✔️️
+| Ingenico ePayments      | n/a               | ✔️️
 | Mollie                  | ✔️️                 | ✔️️
 | MultiSafePay            | n/a               | ✔️️
