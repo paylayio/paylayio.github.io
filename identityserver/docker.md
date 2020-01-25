@@ -8,7 +8,7 @@
 {:toc}
 
 ---
-This instruction guide tells you how to install the PAYLAY [IdentityServer](IdentityServer/readme.md) Community Edition for local development purposes.
+This instruction guide tells you how to install the PAYLAY [IdentityServer](IdentityServer/readme.md) Community Edition for **local development purposes**.
 
 ## Pull the image
 ~~~ bash
@@ -63,8 +63,8 @@ Here, we create a user called `ironman`.
 
 You will be prompted to enter the password for your initial user. Don't forget it. There is no password retrieval functionality in the current Community Edition.
 
-### Seed client
-You need to seed data for your first client: the Dashboard application.
+### Add client
+Next, we need to add a client called `dashboard`, which later we will use as `client_id` for our [Dashboard](dashboard/readme.md) application.
 
 ~~~ bash
 docker run \
@@ -74,7 +74,8 @@ paylay/identityserver:latest \
 seed dashboard https://localhost:28889
 ~~~
 
-A secret will be generated for the client and shown to you. The secret is only shown once and cannot be retrieved later on. Please keep a copy of the secret for now.
+A **client secret** will be generated for the client and shown to you. You will need to use it later in the [Dashboard Docker Guide](dashboard/docker.md).
+The client secret is only shown once and cannot be retrieved later on. Please keep a copy of the secret for now.
 
 ### Run
 Now you are ready to run the IdentityServer.
