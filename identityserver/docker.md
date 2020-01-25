@@ -15,9 +15,7 @@ This instruction guide tells you how to install the PAYLAY [IdentityServer](Iden
 docker pull paylay/identityserver:latest
 ~~~
 
-## How to use this image
-
-### View EULA
+## View EULA
 We kindly ask you to read the EULA first:
 ~~~ bash
 docker run paylay/identityserver:latest eula
@@ -25,10 +23,10 @@ docker run paylay/identityserver:latest eula
 
 By performing the installation in the next step, you are accepting our EULA.
 
-### Installation
+## Installation
 For this guide, we use an Environment variable file to store and read settings. If you require or prefer other ways of settings management, please refer to the [Docker documentation](https://docs.docker.com).
 
-#### Environment variable file
+### Environment variable file
 
 Create a file called `env_file` containing the following contents, and save it to a location on your machine. We refer to this location as `/users/example/docker` for the remainder of this guide.
 ~~~ ini
@@ -39,7 +37,7 @@ The value of the setting `PayLay:IdentityServer:Rdbms` specifies the database pr
 
 The value of the setting `PayLay:IdentityServer:ConnectionString` specifies the connection string of the database provider. Here, we specify that the database schema and data needs to be persisted to a file called `/paylay/identityserver.sqlite`.
 
-#### Start the installation process
+### Start the installation process
 ~~~ bash
 docker run \
 --env-file=env_file
@@ -52,7 +50,7 @@ In the above step, we use Docker Environment variables to set settings required 
 
 In this case, we persist the database to a file, and because of that, we need to mount a directory of the host machine to the Docker container. In this case we mount the host machine directory `/users/example/docker` to `/paylay/`. Of course, your directory will be different than what is described in this guide.
 
-#### Add initial user
+### Add initial user
 ~~~ bash
 docker run \
 --env-file=env_file
@@ -65,7 +63,7 @@ Here, we create a user called `ironman`.
 
 You will be prompted to enter the password for your initial user. Don't forget it. There is no password retrieval functionality in the current Community Edition.
 
-#### Seed client
+### Seed client
 You need to seed data for your first client: the Dashboard application.
 
 ~~~ bash
@@ -78,7 +76,7 @@ seed dashboard https://localhost:28889
 
 A secret will be generated for the client and shown to you. The secret is only shown once and cannot be retrieved later on. Please keep a copy of the secret for now.
 
-#### Run
+### Run
 Now you are ready to run the IdentityServer.
 
 ~~~ bash
@@ -92,8 +90,8 @@ run
 
 The IdentityServer is available at `http://localhost:28890`
 
-### SSL
+## SSL
 We will soon add instructions for setting up SSL with IdentityServer.
 
-### Next up...
+## Next up...
 Now that you have finished setting up the IdentityServer, please proceed with the [PaymentServer Docker Guide](/PaymentServer/docker.md).
