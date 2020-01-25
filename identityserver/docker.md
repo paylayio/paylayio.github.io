@@ -51,7 +51,7 @@ install --accept-eula
 ~~~
 
 Windows
-~~~ dos
+~~~ shell
 docker run --env-file=identityserver_env -v %PAYLAYDIR%:"/paylay/" paylay/identityserver:latest ^
 install --accept-eula
 ~~~
@@ -69,7 +69,7 @@ add-user ironman
 ~~~
 
 Windows
-~~~ dos
+~~~ shell
 docker run --env-file=identityserver_env -v %PAYLAYDIR%:"/paylay/" -it paylay/identityserver:latest ^
 add-user ironman
 ~~~
@@ -88,7 +88,7 @@ seed dashboard https://localhost:28889
 ~~~
 
 Windows
-~~~ dos
+~~~ shell
 docker run --env-file=identityserver_env -v %PAYLAYDIR%:"/paylay/" paylay/identityserver:latest ^
 seed dashboard https://localhost:28889
 ~~~
@@ -106,7 +106,7 @@ run
 ~~~
 
 Windows
-~~~ dos
+~~~ shell
 docker run --env-file=identityserver_env -v %PAYLAYDIR%:"/paylay/" -p 28890:80 paylay/identityserver:latest ^
 run
 ~~~
