@@ -1,8 +1,8 @@
 # IdentityServer Docker Guide
-This instruction guide tells you how to install the PAYLAY IdentityServer Community Edition for local development purposes.
+This instruction guide tells you how to install the PAYLAY [IdentityServer](IdentityServer/readme.md) Community Edition for local development purposes.
 
 ## Pull the image
-~~~
+~~~ bash
 docker pull paylay/identityserver:latest
 ~~~
 
@@ -10,70 +10,73 @@ docker pull paylay/identityserver:latest
 
 ### View EULA
 We kindly ask you to read the EULA first:
-~~~
-$ docker run paylay/identityserver:latest eula
+~~~ bash
+docker run paylay/identityserver:latest eula
 ~~~
 
 By performing the installation in the next step, you are accepting our EULA.
 
 ### Installation
+For this guide, we use an Environment variable file to store and read settings. If you require or prefer other ways of settings management, please refer to the [Docker documentation](https://docs.docker.com).
 
+#### Environment variable file
+
+Create a file called `env_file` containing the following contents, and save it to a location on your machine. We refer to this location as `/users/example/docker` for the remainder of this guide.
+~~~ ini
+PayLay:IdentityServer:Rdbms=Sqlite
+PayLay:IdentityServer:ConnectionString=Data Source=/paylay/identityserver.sqlite
+~~~
+The value of the setting `PayLay:IdentityServer:Rdbms` specifies the database provider. Here, we specify `Sqlite`. See [Supported Database Providers](/identityserver/supported-database-providers) for all possible values.
+
+The value of the setting `PayLay:IdentityServer:ConnectionString` specifies the connection string of the database provider. Here, we specify that the database schema and data needs to be persisted to a file called `/paylay/identityserver.sqlite`.
+
+#### Start the installation process
 ~~~ bash
 docker run \
--e PayLay:IdentityServer:Rdbms="Sqlite" \
--e PayLay:IdentityServer:ConnectionString="Data Source=/paylay/identityserver.sqlite" \
--v "/Users/huyhoang/Docker":"/paylay/" \
+--env-file=env_file
+-v "/users/example/docker":"/paylay/" \
 paylay/identityserver:latest \
 install --accept-eula
 ~~~
 
 In the above step, we use Docker Environment variables to set settings required by IdentityServer.
 
-The value of the setting `PayLay:IdentityServer:Rdbms` specifies the Database provider. Here, we specify `Sqlite`.
+In this case, we persist the database to a file, and because of that, we need to mount a directory of the host machine to the Docker container. In this case we mount the host machine directory `/users/example/docker` to `/paylay/`. Of course, your directory will be different than what is described in this guide.
 
-The value of the setting `PayLay:IdentityServer:ConnectionString` specifies the connection string. Here, we specify that the database schema and data needs to be persisted to a file called `/paylay/identityserver.sqlite`.
-
-In this case, we persist the database to a file, and because of that, we need to mount a directory of the host machine to the Docker container. In this case we mount the host machine directory `/Users/PayLay/Docker` to `/paylay/`. Depending on your OS and/or username, your directory will be different.
-
-### Add initial user
+#### Add initial user
 ~~~ bash
 docker run \
--e PayLay:IdentityServer:Rdbms="Sqlite" \
--e PayLay:IdentityServer:ConnectionString="Data Source=/paylay/identityserver.sqlite" \
--v "/Users/huyhoang/Docker":"/paylay/" \
+--env-file=env_file
+-v "/users/example/docker":"/paylay/" \
 -it \
 paylay/identityserver:latest \
 add-user ironman
 ~~~
+Here, we create a user called `ironman`.
 
 You will be prompted to enter the password for your initial user. Don't forget it. There is no password retrieval functionality in the current Community Edition.
 
-### Seed client
+#### Seed client
 You need to seed data for your first client: the Dashboard application.
 
 ~~~ bash
 docker run \
--e PayLay:IdentityServer:Rdbms="Sqlite" \
--e PayLay:IdentityServer:ConnectionString="Data Source=/paylay/identityserver.sqlite" \
--v "/Users/huyhoang/Docker":"/paylay/" \
+--env-file=env_file
+-v "/users/example/docker":"/paylay/" \
 paylay/identityserver:latest \
 seed dashboard https://localhost:28889
 ~~~
 
 A secret will be generated for the client and shown to you. The secret is only shown once and cannot be retrieved later on. Please keep a copy of the secret for now.
 
-### Run
+#### Run
 Now you are ready to run the IdentityServer.
 
 ~~~ bash
 docker run \
--e PayLay:IdentityServer:Rdbms="Sqlite" \
--e PayLay:IdentityServer:ConnectionString="Data Source=/paylay/identityserver.sqlite" \
--v "/Users/huyhoang/Docker":"/paylay/" \
+--env-file=env_file
+-v "/users/example/docker":"/paylay/" \
 -p 28890:80 \
--e Logging:LogLevel:System="Debug" \
--e Logging:LogLevel:Default="Debug" \
--e Logging:LogLevel:Microsoft="Debug" \
 paylay/identityserver:latest \
 run
 ~~~
