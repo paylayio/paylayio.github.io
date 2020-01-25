@@ -44,24 +44,17 @@ The value of the setting `PayLay:IdentityServer:ConnectionString` specifies the 
 
 ### Start the installation process
 ~~~ bash
-docker run \
---env-file=identityserver_env
--v $PAYLAYDIR:"/paylay/" \
-paylay/identityserver:latest \
+docker run --env-file=identityserver_env -v $PAYLAYDIR:"/paylay/" paylay/identityserver:latest \
 install --accept-eula
 ~~~
 
 In the above step, we use Docker Environment variables to set settings required by IdentityServer.
 
-In this case, we persist the database to a file, and because of that, we need to mount a directory of the host machine to the Docker container. In this case we mount the host machine directory `/users/example/docker` to `/paylay/`. Of course, your directory will be different than what is described in this guide.
+In this case, we persist the database to a file, and because of that, we need to mount a directory of the host machine to the Docker container. In this case we mount the host machine directory defined in the `PAYLAYDIR` environment variable to `/paylay/`.
 
 ### Add initial user
 ~~~ bash
-docker run \
---env-file=identityserver_env
--v $PAYLAYDIR:"/paylay/" \
--it \
-paylay/identityserver:latest \
+docker run --env-file=identityserver_env -v $PAYLAYDIR:"/paylay/" -it paylay/identityserver:latest \
 add-user ironman
 ~~~
 Here, we create a user called `ironman`.
@@ -72,10 +65,7 @@ You will be prompted to enter the password for your initial user. Don't forget i
 Next, we need to add a client called `dashboard`, which later we will use as `client_id` for our [Dashboard](dashboard/readme.md) application.
 
 ~~~ bash
-docker run \
---env-file=identityserver_env
--v $PAYLAYDIR:"/paylay/" \
-paylay/identityserver:latest \
+docker run --env-file=identityserver_env -v $PAYLAYDIR:"/paylay/" paylay/identityserver:latest \
 seed dashboard https://localhost:28889
 ~~~
 
@@ -86,11 +76,7 @@ The client secret is only shown once and cannot be retrieved later on. Please ke
 Now you are ready to run the IdentityServer.
 
 ~~~ bash
-docker run \
---env-file=identityserver_env
--v "/users/example/docker":"/paylay/" \
--p 28890:80 \
-paylay/identityserver:latest \
+docker run --env-file=identityserver_env -v $PAYLAYDIR:"/paylay/" -p 28890:80 paylay/identityserver:latest \
 run
 ~~~
 
