@@ -1,4 +1,10 @@
 # IdentityServer Docker Guide
+This instruction guide tells you how to install the PAYLAY [IdentityServer](IdentityServer/readme.md) Community Edition for **local development purposes**.
+
+Make sure you have read and followed the steps in the [Getting Started Guide](../getting-started.md) prior to this guide.
+
+---
+
 {: .no_toc }
 
 ## Table of contents
@@ -8,7 +14,6 @@
 {:toc}
 
 ---
-This instruction guide tells you how to install the PAYLAY [IdentityServer](IdentityServer/readme.md) Community Edition for **local development purposes**.
 
 ## Pull the image
 ~~~ bash
@@ -28,7 +33,7 @@ For this guide, we use an Environment variable file to store and read settings. 
 
 ### Environment variable file
 
-Create a file called `env_file` containing the following contents, and save it to a location on your machine. We refer to this location as `/users/example/docker` for the remainder of this guide.
+Create a file called `identityserver_env` containing the following contents, and save it to a location on your machine.
 ~~~ ini
 PayLay:IdentityServer:Rdbms=Sqlite
 PayLay:IdentityServer:ConnectionString=Data Source=/paylay/identityserver.sqlite
@@ -40,8 +45,8 @@ The value of the setting `PayLay:IdentityServer:ConnectionString` specifies the 
 ### Start the installation process
 ~~~ bash
 docker run \
---env-file=env_file
--v "/users/example/docker":"/paylay/" \
+--env-file=identityserver_env
+-v $PAYLAYDIR:"/paylay/" \
 paylay/identityserver:latest \
 install --accept-eula
 ~~~
@@ -53,8 +58,8 @@ In this case, we persist the database to a file, and because of that, we need to
 ### Add initial user
 ~~~ bash
 docker run \
---env-file=env_file
--v "/users/example/docker":"/paylay/" \
+--env-file=identityserver_env
+-v $PAYLAYDIR:"/paylay/" \
 -it \
 paylay/identityserver:latest \
 add-user ironman
@@ -68,8 +73,8 @@ Next, we need to add a client called `dashboard`, which later we will use as `cl
 
 ~~~ bash
 docker run \
---env-file=env_file
--v "/users/example/docker":"/paylay/" \
+--env-file=identityserver_env
+-v $PAYLAYDIR:"/paylay/" \
 paylay/identityserver:latest \
 seed dashboard https://localhost:28889
 ~~~
@@ -82,7 +87,7 @@ Now you are ready to run the IdentityServer.
 
 ~~~ bash
 docker run \
---env-file=env_file
+--env-file=identityserver_env
 -v "/users/example/docker":"/paylay/" \
 -p 28890:80 \
 paylay/identityserver:latest \
