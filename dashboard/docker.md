@@ -17,21 +17,26 @@ docker pull paylay/dashboard:latest
 
 ## Installation
 ### Environment variable file
-
-Create a file called `env_dashboard` containing the following contents:
+Create a file called `dashboard_env` using the content below and save the file to your PAYLAY working directory:
 ~~~ ini
 PayLay:Dashboard:IdentityServerUri=https://localhost:28890
 PayLay:Dashboard:PaymentServerUri=https://localhost:28888
 PayLay:Dashboard:ClientId=dashboard
-PayLay:Dashboard:ClientSecret={ your client secret } # replace with your client secret #
-Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename } # replace with your certificate name
-Kestrel:Certificates:Default:Password={ your password } # replace with your certificate password
+PayLay:Dashboard:ClientSecret={ your client secret } # replace
+Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename } # replace
+Kestrel:Certificates:Default:Password={ your password } # replace
 ~~~
-You need to set the `PayLay:Dashboard:ClientSecret` variable with the **client secret** value that was generated in the last step of the [IdentityServer Docker Guide](/identityserver/docker.md).
+You need to replace `{ your client secret }` with the **client secret** value that was generated in the last step of the [IdentityServer Docker Guide](/identityserver/docker.md).
+
+The value `{ your certificate filename }` needs to be replaced with the filename of your PKCS#12 certificate file.
+
+The value `{ your password }` needs to be replaced with the password of your PKCS#12 certificate file.
 
 ### Run
+
+#### macOS, Windows
 ~~~ bash
-docker run --env-file=env_dashboard -p 28889:80 paylay/dashboard:latest run
+docker run --env-file=dashboard_env -p 28889:80 paylay/dashboard:latest run
 ~~~
 
 After running this command, navigate to `http://localhost:28889`.

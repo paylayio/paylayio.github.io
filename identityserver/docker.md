@@ -32,8 +32,7 @@ By performing the installation in the next step, you are accepting our EULA.
 For this guide, we use an Environment variable file to store and read settings. If you require or prefer other ways of settings management, please refer to the [Docker documentation](https://docs.docker.com).
 
 ### Environment variable file
-
-Create a file called `identityserver_env` containing the following contents, and save it to a location on your machine.
+Create a file called `identityserver_env` using the content below and save the file to your PAYLAY working directory:
 ~~~ ini
 PayLay:IdentityServer:Rdbms=Sqlite
 PayLay:IdentityServer:ConnectionString=Data Source=/paylay/identityserver.sqlite
