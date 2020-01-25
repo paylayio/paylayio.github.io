@@ -9,14 +9,14 @@ Before you continue performing steps outlined in the various Docker Guides, we a
 
 Then store the value of your working directory to the environment variable `PAYLAYDIR` so that you can simply copy-and-paste the commands in the Docker Guides.
 
-#### macOS
-~~~ bash
-export PAYLAYDIR=/Users/Example/Docker
-~~~
-
 #### Linux
 ~~~ bash
 # Example will follow soon
+~~~
+
+#### macOS
+~~~ bash
+export PAYLAYDIR=/Users/Example/Docker
 ~~~
 
 #### Windows
