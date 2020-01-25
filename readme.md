@@ -3,7 +3,7 @@ PAYLAY
 PAYLAY is a Payments Framework solution for easily developing and integrating eCommerce processes into your organisation's platform:
 - connect to Leading Payment Service Providers
 - connect to Messaging Systems
-- connect to leading Database Providers
+- supports Leading Database Providers
 
 PAYLAY is striving to be technology-agnostic so that you can continue using your favorite development tools and deploy to any environment you prefer or already have.
 
