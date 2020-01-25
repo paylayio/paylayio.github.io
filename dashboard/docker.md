@@ -35,6 +35,7 @@ The value `{ your password }` needs to be replaced with the password of your PKC
 ### Run
 
 #### macOS, Windows
+{: .no_toc }
 ~~~ bash
 docker run --env-file=dashboard_env -p 28889:80 paylay/dashboard:latest run
 ~~~
