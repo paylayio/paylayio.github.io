@@ -28,7 +28,7 @@ PayLay:PaymentServer:ConnectionString=Data Source=/paylay/paymentserver.sqlite
 The value of the setting `PayLay:PaymentServer:Rdbms` specifies the database provider. Here, we specify `Sqlite`. See [Supported Database Providers](/paymentserver/supported-database-providers) for all possible values.
 
 Save the file to a location on your machine. We refer to this location as `/users/example/docker` for the remainder of this guide.
-**Warning:** you should change this value to whatever you want.
+**Warning:** in the examples, we use `/users/example/docker`. You need to replace them with the actual location on your machine.
 
 ### Start installation process
 ~~~ bash
