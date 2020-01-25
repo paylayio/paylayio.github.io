@@ -1,4 +1,13 @@
 # IdentityServer Docker Guide
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 This instruction guide tells you how to install the PAYLAY [IdentityServer](IdentityServer/readme.md) Community Edition for local development purposes.
 
 ## Pull the image
