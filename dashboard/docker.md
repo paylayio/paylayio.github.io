@@ -23,9 +23,10 @@ Create a file called `env_dashboard` containing the following contents:
 PayLay:Dashboard:IdentityServerUri=https://localhost:28890
 PayLay:Dashboard:PaymentServerUri=https://localhost:28888
 PayLay:Dashboard:ClientId=dashboard
-PayLay:Dashboard:ClientSecret=# your secret #
+PayLay:Dashboard:ClientSecret={ your client secret } # replace with your client secret #
+Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename } # replace with your certificate name
+Kestrel:Certificates:Default:Password={ your password } # replace with your certificate password
 ~~~
-
 You need to set the `PayLay:Dashboard:ClientSecret` variable with the **client secret** value that was generated in the last step of the [IdentityServer Docker Guide](/identityserver/docker.md).
 
 ### Run

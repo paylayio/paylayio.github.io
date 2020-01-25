@@ -18,36 +18,34 @@ docker pull paylay/paymentserver:latest
 ## Installation
 ### Environment variable file
 
-Create a file called `paymentserver_env` containing the following contents:
+Create a file called `paymentserver_env` and save the file to your PAYLAY working directory:
 ~~~ ini
 PayLay:PaymentServer:Rdbms=Sqlite
 PayLay:PaymentServer:ConnectionString=Data Source=/paylay/paymentserver.sqlite
+Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename } # replace with your certificate name
+Kestrel:Certificates:Default:Password={ your password } # replace with your certificate password
 ~~~
 The value of the setting `PayLay:PaymentServer:Rdbms` specifies the database provider. Here, we specify `Sqlite`. See [Supported Database Providers](/paymentserver/supported-database-providers) for all possible values.
 
-Save the file to a location on your machine. We refer to this location as `/users/example/docker` for the remainder of this guide.
-**Warning:** in the examples, we use `/users/example/docker`. You need to replace them with the actual location on your machine.
+The value `{ your certificate filename }` needs to be replaced with the filename of your PKCS#12 certificate file.
+
+The value `{ your password }` needs to be replaced with the password of your PKCS#12 certificate file.
+
+{{some_other_file.txt}}
 
 ### Start installation process
 ~~~ bash
-docker run \
---env-file=paymentserver_env \
--v $PAYLAYDIR:"/paylay/" \
-paylay/paymentserver:latest \
+docker run --env-file=paymentserver_env -v $PAYLAYDIR:"/paylay/" paylay/paymentserver:latest \
 install
 ~~~
 
 ### Run application
 ~~~ bash
-docker run \
---env-file=paymentserver_env \
--v $PAYLAYDIR:"/paylay/" \
--p 28888:80 \
-paylay/paymentserver:latest \
+docker run --env-file=paymentserver_env -v $PAYLAYDIR:"/paylay/" -p 28888:443 paylay/paymentserver:latest \
 run
 ~~~
 
-After starting the PaymentServer, Swagger should be available at `http://localhost:28888/swagger`.
+After starting the PaymentServer, Swagger should be available at `https://localhost:28888/swagger`.
 
 ### Next
 Now that you have the [PaymentServer](paymentserver/readme.md) up-and-running, please continue with the [Dashboard Docker Guide](dashboard/docker.md).
