@@ -16,8 +16,6 @@ docker pull paylay/paymentserver:latest
 ~~~
 
 ## Installation
-For this guide, we use an Environment variable file to store and read settings. If you require or prefer other ways of settings management, please refer to the [Docker documentation](https://docs.docker.com).
-
 ### Environment variable file
 
 Create a file called `paymentserver_env` containing the following contents:
@@ -34,7 +32,7 @@ Save the file to a location on your machine. We refer to this location as `/user
 ~~~ bash
 docker run \
 --env-file=paymentserver_env \
--v "/users/example/docker":"/paylay/" \
+-v $PAYLAYDIR:"/paylay/" \
 paylay/paymentserver:latest \
 install
 ~~~
@@ -43,7 +41,7 @@ install
 ~~~ bash
 docker run \
 --env-file=paymentserver_env \
--v "/users/example/docker":"/paylay/" \
+-v $PAYLAYDIR:"/paylay/" \
 -p 28888:80 \
 paylay/paymentserver:latest \
 run

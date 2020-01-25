@@ -16,8 +16,6 @@ docker pull paylay/dashboard:latest
 ~~~
 
 ## Installation
-For this guide, we use an Environment variable file to store and read settings. If you require or prefer other ways of settings management, please refer to the [Docker documentation](https://docs.docker.com).
-
 ### Environment variable file
 
 Create a file called `env_dashboard` containing the following contents:
