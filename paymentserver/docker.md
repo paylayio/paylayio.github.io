@@ -33,8 +33,16 @@ The value `{ your password }` needs to be replaced with the password of your PKC
 {{some_other_file.txt}}
 
 ### Start installation process
+
+macOS
 ~~~ bash
 docker run --env-file=paymentserver_env -v $PAYLAYDIR:"/paylay/" paylay/paymentserver:latest \
+install
+~~~
+
+Windows
+~~~ shell
+docker run --env-file=paymentserver_env -v %PAYLAYDIR%:"/paylay/" paylay/paymentserver:latest ^
 install
 ~~~
 
