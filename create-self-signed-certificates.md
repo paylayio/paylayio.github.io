@@ -8,7 +8,12 @@ Generate a new self-signed certificate
 
 #### macOS
 ~~~ bash
-
+openssl req -x509 -newkey rsa:4096 -sha256 -days 365 -nodes \
+    -subj "/CN=localhost" \
+    -extensions SAN \
+    -config <(cat /etc/ssl/openssl.cnf \
+            <(printf "[SAN]\nsubjectAltName='DNS:localhost,IP:127.0.0.1'")) \
+    -keyout paylaydev.key -out paylaydev.crt
 ~~~
 
 #### Windows
@@ -19,13 +24,9 @@ openssl req -x509 -newkey rsa:4096 -sha256 -days 365 -nodes ^
 ~~~
 
 ## PKCS#12
-All PAYLAY applications require PKCS#12, so we need to run another command to convert it to PKCS#12:
+All PAYLAY applications require certificates in PKCS#12 format, so we need to run another command to convert it to PKCS#12:
 
-#### macOS
-~~~ bash
-~~~
-
-#### Windows
+#### macOS, Windows
 ~~~ shell
 openssl pkcs12 -inkey paylaydev.key -in paylaydev.crt -export -out paylaydev.p12
 ~~~
