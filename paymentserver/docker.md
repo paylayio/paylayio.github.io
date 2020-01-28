@@ -34,8 +34,6 @@ The value `{ your certificate filename }` needs to be replaced with the filename
 
 The value `{ your password }` needs to be replaced with the password of your PKCS#12 certificate file.
 
-{{some_other_file.txt}}
-
 ### Start installation process
 
 macOS

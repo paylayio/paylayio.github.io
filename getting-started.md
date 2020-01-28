@@ -20,25 +20,18 @@ export PAYLAYDIR=/Users/Example/Docker
 ~~~
 
 #### Windows
-~~~ cmd
+~~~ shell
 set PAYLAYDIR=C:/Users/Example/Docker
 ~~~
 
-### Create self-signed certificates
-SSL certificates are required for all 3 core applications.
+## Steps
+We recommend you do things in the following order:
 
-For the convenience of local development work, we recommend that you create self-signed certificates (PKCS#12) using OpenSSL.
+1. All PAYLAY core applications require an SSL certificate. For convenience and development purposes only, please read how to [Create Self-Signed Certificates](create-self-signed-certificates.md).
+Then place the certificates inside the `PAYLAYDIR` directory.
 
-Instructions can be found here:
-https://www.ibm.com/support/knowledgecenter/SSMNED_5.0.0/com.ibm.apic.cmc.doc/task_apionprem_gernerate_self_signed_openSSL.html
+Follow the instructions in the following Docker Guides:
 
-Place the certificates inside the `PAYLAYDIR` directory.
-
-In the Docker Guide of each application, you will get specific instructions on how to reference the certificates.
-
-## Docker Guides
-When you are ready to get started with PAYLAY, we recommend you read and follow the Docker Guides in the following order:
-
-- [IdentityServer Docker Guide](identityserver/docker.md)
-- [PaymentServer Docker Guide](paymentserver/docker.md)
-- [Dashboard Docker Guide](dashboard/docker.md)
+2. [IdentityServer Docker Guide](identityserver/docker.md)
+3. [PaymentServer Docker Guide](paymentserver/docker.md)
+4. [Dashboard Docker Guide](dashboard/docker.md)
