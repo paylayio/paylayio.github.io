@@ -36,10 +36,16 @@ Create a file called `identityserver_env` using the content below and save the f
 ~~~ ini
 PayLay:IdentityServer:Rdbms=Sqlite
 PayLay:IdentityServer:ConnectionString=Data Source=/paylay/identityserver.sqlite
+Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename }
+Kestrel:Certificates:Default:Password={ your password }
 ~~~
 The value of the setting `PayLay:IdentityServer:Rdbms` specifies the database provider. Here, we specify `Sqlite`. See [Supported Database Providers](/identityserver/supported-database-providers) for all possible values.
 
 The value of the setting `PayLay:IdentityServer:ConnectionString` specifies the connection string of the database provider. Here, we specify that the database schema and data needs to be persisted to a file called `/paylay/identityserver.sqlite`.
+
+The value `{ your certificate filename }` needs to be replaced with the filename of your PKCS#12 certificate file.
+
+The value `{ your password }` needs to be replaced with the password of your PKCS#12 certificate file.
 
 ### Start the installation process
 
@@ -110,10 +116,7 @@ docker run --env-file=identityserver_env -v %PAYLAYDIR%:"/paylay/" -p 28890:80 p
 run
 ~~~
 
-The IdentityServer is available at `http://localhost:28890`
-
-## SSL
-We will soon add instructions for setting up SSL with IdentityServer.
+Navigate to the discovery endpoint at `http://localhost:28890/.well-known/openid-configuration` to validate that IdentityServer is up-and-running.
 
 ## Next up...
 Now that you have finished setting up the IdentityServer, please proceed with the [PaymentServer Docker Guide](/PaymentServer/docker.md).

@@ -25,8 +25,8 @@ Create a file called `paymentserver_env` using the content below and save the fi
 ~~~ ini
 PayLay:PaymentServer:Rdbms=Sqlite
 PayLay:PaymentServer:ConnectionString=Data Source=/paylay/paymentserver.sqlite
-Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename } # replace
-Kestrel:Certificates:Default:Password={ your password } # replace
+Kestrel:Certificates:Default:Path=/paylay/{ your certificate filename }
+Kestrel:Certificates:Default:Password={ your password }
 ~~~
 The value of the setting `PayLay:PaymentServer:Rdbms` specifies the database provider. Here, we specify `Sqlite`. See [Supported Database Providers](/paymentserver/supported-database-providers) for all possible values.
 
