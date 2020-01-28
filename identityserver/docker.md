@@ -119,4 +119,4 @@ run
 Navigate to the discovery endpoint at `http://localhost:28890/.well-known/openid-configuration` to validate that IdentityServer is up-and-running.
 
 ## Next up...
-Now that you have finished setting up the IdentityServer, please proceed with the [PaymentServer Docker Guide](/PaymentServer/docker.md).
+Now that you have finished setting up the IdentityServer, please proceed with the [PaymentServer Docker Guide](/paymentserver/docker.md).
