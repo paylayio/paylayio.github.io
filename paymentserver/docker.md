@@ -11,11 +11,15 @@
 This guide can help you easily install the PAYLAY PaymentServer Community Edition for local development purposes.
 
 ## Pull the image
-~~~
+~~~ shell
 docker pull paylay/paymentserver:latest
 ~~~
 
 ## Installation
+
+### Certificate
+Make sure you have an SSL certificate. For convenience, you can [Create Self-Signed Certificates](../create-self-signed-certificate.md).
+
 ### Environment variable file
 Create a file called `paymentserver_env` using the content below and save the file to your PAYLAY working directory:
 ~~~ ini
@@ -47,8 +51,16 @@ install
 ~~~
 
 ### Run application
+
+macOS
 ~~~ bash
-docker run --env-file=paymentserver_env -v $PAYLAYDIR:"/paylay/" -p 28888:443 paylay/paymentserver:latest \
+docker run --rm -it --env-file=paymentserver_env -v $PAYLAYDIR:"/paylay/" -p 28888:28888 paylay/paymentserver:latest \
+run
+~~~
+
+Windows
+~~~ shell
+docker run --rm -it --env-file=paymentserver_env -v %PAYLAYDIR%:"/paylay/" -p 28888:28888 paylay/paymentserver:latest ^
 run
 ~~~
 
