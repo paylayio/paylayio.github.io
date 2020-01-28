@@ -34,10 +34,15 @@ The value `{ your password }` needs to be replaced with the password of your PKC
 
 ### Run
 
-#### macOS, Windows
+#### macOS
 {: .no_toc }
 ~~~ bash
-docker run --env-file=dashboard_env -p 28889:80 paylay/dashboard:latest run
+docker run --env-file=dashboard_env -p 28889:80 -v $PAYLAYDIR:/paylay/ paylay/dashboard:latest run
+~~~
+
+#### Windows
+~~~ bash
+docker run --env-file=dashboard_env -p 28889:80 -v %PAYLAYDIR%:/paylay/ paylay/dashboard:latest run
 ~~~
 
 After running this command, navigate to `http://localhost:28889`.
