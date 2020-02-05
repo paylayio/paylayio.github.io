@@ -11,7 +11,7 @@ What will the script do in general?
 
 ### Prerequisites
 - You have Docker Desktop installed
-- The script will automatically run Docker containers for installation. You could run into folder mounting issues if Docker does not have the correct folder permissions.
+- The script will automatically run the containers for installation purposes. You could run into folder mounting issues (such as `Error response from daemon: Mounts denied`) if Docker does not have the correct folder permissions.
 
 ### Prerequisites for macOS
 In order to run the installation script, you need to have PowerShell Core installed on your Mac.
