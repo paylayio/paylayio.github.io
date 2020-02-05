@@ -9,6 +9,10 @@ What will the script do in general?
 - generate self-signed certificates
 - install the self-signed certificates to your local certificate store
 
+### Prerequisites
+- You have Docker Desktop installed
+- The script will automatically run Docker containers for installation. You could run into folder mounting issues if Docker does not have the correct folder permissions.
+
 ### Prerequisites for macOS
 In order to run the installation script, you need to have PowerShell Core installed on your Mac.
 
@@ -21,8 +25,8 @@ brew cask install powershell
 ~~~
 
 After that, fire up PowerShell Core:
-~~~
-./pwsh
+~~~ bash
+pwsh
 ~~~
 
 ### Installation instructions
