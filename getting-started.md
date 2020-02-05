@@ -1,37 +1,36 @@
 # Getting Started
 
 ## Introduction
-An Environment variable file is used throughout all [Docker Guides](#Docker-Guides). It is used to store and read settings. If you require or prefer other ways of settings management, please refer to the [Docker documentation](https://docs.docker.com).
+We have prepared a [PowerShell Core installation script](./powershell/install.ps1) that helps you set up the PAYLAY Community Edition ecosystem in minutes.
 
-## Prerequisites
-### Create a working directory
-Before you continue performing steps outlined in the various Docker Guides, we ask you to create a _working directory_ on your machine where the environment variable files can be stored, and files can be persisted.
+What will the script do in general?
+- it will pull the latest Docker images of our 3 core applications
+- install the applications (a Sqlite database is generated wherever this is needed)
+- generate self-signed certificates
+- install the self-signed certificates to your local certificate store
 
-Then store the value of your working directory to the environment variable `PAYLAYDIR` so that you can simply copy-and-paste the commands in the Docker Guides.
+### Prerequisites for macOS
+In order to run the installation script, you need to have PowerShell Core installed on your Mac.
 
-#### Linux
+You can install PowerShell Core using Homebrew.
+
+If the `brew` command is not found, then please [install Homebrew first](https://brew.sh).
+
 ~~~ bash
-# Example will follow soon
+brew cask install powershell
 ~~~
 
-#### macOS
-~~~ bash
-export PAYLAYDIR=/Users/Example/Docker
+After that, fire up PowerShell Core:
+~~~
+./pwsh
 ~~~
 
-#### Windows
-~~~ shell
-set PAYLAYDIR=C:/Users/Example/Docker
+### Installation instructions
+Fire up PowerShell, navigate to the directory where the installation script is located, and type in:
+~~~
+./install.ps1
 ~~~
 
-## Steps
-We recommend you do things in the following order:
+That's it!
 
-1. All PAYLAY core applications require an SSL certificate. For convenience and development purposes only, please read how to [Create Self-Signed Certificates](create-self-signed-certificates.md).
-Then place the certificates inside the `PAYLAYDIR` directory.
-
-Follow the instructions in the following Docker Guides:
-
-2. [IdentityServer Docker Guide](identityserver/docker.md)
-3. [PaymentServer Docker Guide](paymentserver/docker.md)
-4. [Dashboard Docker Guide](dashboard/docker.md)
+Follow the instructions during the installation and happy coding!
