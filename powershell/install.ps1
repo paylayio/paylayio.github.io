@@ -169,16 +169,12 @@ function Import-Self-Signed-Certificates {
     Write-Host "*                                                     *" -ForegroundColor Green
     Write-Host "*******************************************************" -ForegroundColor Green
     Write-Host ""
-    $dashboardCert = "${OutputDir}dev.crt"
-    # $paymentServerCert = "${OutputDir}paymentserver.crt"
-    # $identityServerCert = "${OutputDir}identityserver.crt"
+    $devCert = "${OutputDir}dev.crt"
 
     if ($IsMacOS) {
         "Importing certificates into macOS..."
         ""
-        Invoke-Expression "sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $dashboardCert"
-        Invoke-Expression "sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $paymentServerCert"
-        Invoke-Expression "sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $identityServerCert"
+        Invoke-Expression "sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain $devCert"
     }
     elseif ($IsLinux) {
         "Importing certificates into Linux is not yet supported..."
@@ -186,9 +182,7 @@ function Import-Self-Signed-Certificates {
     else {
         "Importing certificates into Windows..."
         ""
-        Invoke-Expression "certutil -user -addstore Root $dashboardCert"
-        # Invoke-Expression "certutil -user -addstore Root $paymentServerCert"
-        # Invoke-Expression "certutil -user -addstore Root $identityServerCert"
+        Invoke-Expression "certutil -user -addstore Root $devCert"
     }
 }
 
