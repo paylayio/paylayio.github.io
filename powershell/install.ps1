@@ -53,8 +53,16 @@ function Remove-Old-File([string] $FileName) {
 }
 
 function New-Pkcs($FileName) {
-    Invoke-Expression "openssl req -extensions req_ext -config ""${OutputDir}$customOpenSslConfigFile"" -x509 -sha256 -days 365 -nodes -keyout ${OutputDir}$FileName.key -out ${OutputDir}$FileName.crt" # -subj /CN=host.docker.internal
-    Invoke-Expression "openssl pkcs12 -inkey ${OutputDir}$FileName.key -in ${OutputDir}$FileName.crt -export -out ${OutputDir}$FileName.p12 -name ""PAYLAY Self Signed Development Certificate: $FileName"" -password pass:$password"
+    "Creating new certificate using OpenSSL..."
+    ""
+
+    $cmd = "openssl req -new -extensions req_ext -config ""${OutputDir}$customOpenSslConfigFile"" -x509 -sha256 -days 365 -nodes -keyout ${OutputDir}$FileName.key -out ${OutputDir}$FileName.crt"
+    "$cmd"
+    Invoke-Expression $cmd
+
+    $cmd = "openssl pkcs12 -inkey ${OutputDir}$FileName.key -in ${OutputDir}$FileName.crt -export -out ${OutputDir}$FileName.p12 -name ""PAYLAY Self Signed Development Certificate: $FileName"" -password pass:$password"
+    "$cmd"
+    Invoke-Expression $cmd
 
     # Extract fingerprint
     $output = Invoke-Expression "openssl x509 -noout -fingerprint -sha1 -inform pem -in ${OutputDir}$FileName.crt"
