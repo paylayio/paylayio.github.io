@@ -9,9 +9,14 @@ Fire up a terminal or commandline and get started.
 ## 1. Set environment variable
 First, set an environment variable called `PAYLAY_DIR`.
 
-#### Windows
+#### Windows cmd
 ~~~
-$env:PAYLAY_DIR="c:/temp"
+set PAYLAY_DIR=c:\temp
+~~~
+
+#### Windows PowerShell
+~~~
+$env:PAYLAY_DIR="c:\temp"
 ~~~
 
 #### macOS
