@@ -69,5 +69,5 @@ services:
       paylay:dashboard:authentication:clientid: dashboard
       # replace the client secret below with the secret issued during the PAYLAY IdentityServer installation process:
       paylay:dashboard:authentication:clientsecret: YOUR_CLIENT_SECRET
-      paylay:dashboard:authentication:requirehttpsmetadata: "false"
+      paylay:dashboard:authentication:allowunsafehttpcommunication: "true"
       paylay:dashboard:authentication:onredirecttoidentityprovider:authority: http://localhost:28890
