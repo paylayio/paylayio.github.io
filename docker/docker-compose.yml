@@ -11,26 +11,12 @@
 # http://localhost:28889
 #
 # IdentityServer discovery endpoint
-# http://localhost:28890/.well-known/openid-configuration
+# http://localhost:28890/installation
 #
 version: '3.3'
 
 services:
-  # identityserver_install:
-  #   image: paylay/identityserver:latest
-  #   volumes:
-  #     - ${PAYLAY_DIR}:/var/tmp/paylay
-  #   command: ["install", "--accept-eula"]
-  #   restart: "no"
-  #   environment:
-  #     paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
-  #     paylay:identityserver:rdbms: sqlite
-  #     paylay:identityserver:signingcertificate:path: /var/tmp/paylay/identityserver-signing.p12
-  #     paylay:identityserver:signingcertificate:password: helloworld
-
   identityserver:
-    # depends_on:
-    #   - identityserver_install
     image: paylay/identityserver:latest
     ports:
       - "28890:28890"
@@ -41,10 +27,13 @@ services:
     environment:
       urls: http://*:28890
       logging:loglevel:microsoft: debug
-      paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
       paylay:identityserver:rdbms: sqlite
-      paylay:identityserver:signingcertificate:path: /var/tmp/paylay/identityserver-signing.p12
-      paylay:identityserver:signingcertificate:password: helloworld
+      paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
+      paylay:identityserver:authentication:authority: http://localhost:28890
+      # indicates that PAYLAY should generate a developer signing certificate. You should use your own signing certificates in production.
+      paylay:identityserver:signingcertificate:generatedevelopersigningcertificate: "true"
+      # in order to access the folder /installation. Disable after installation.
+      paylay:identityserver:installationmode:enabled: "true"
   
   paymentserver:
     depends_on:
@@ -58,7 +47,7 @@ services:
     environment:
       paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
       paylay:paymentserver:rdbms: sqlite
-      paylay:paymentserver:authentication:authority: http://host.docker.internal:28890
+      paylay:paymentserver:authentication:authority: http://localhost:28890
 
   dashboard:
     depends_on:
@@ -78,6 +67,7 @@ services:
       paylay:dashboard:paymentserver:uri: http://paymentserver:28888
       paylay:dashboard:authentication:authority: http://identityserver:28890
       paylay:dashboard:authentication:clientid: dashboard
-      paylay:dashboard:authentication:clientsecret: dashboard
+      # replace the client secret below with the secret issued during the PAYLAY IdentityServer installation process:
+      paylay:dashboard:authentication:clientsecret: fe4e9b11-dde5-40a6-8277-bd4c901a35fa
       paylay:dashboard:authentication:requirehttpsmetadata: "false"
       paylay:dashboard:authentication:onredirecttoidentityprovider:authority: http://localhost:28890
