@@ -1,0 +1,73 @@
+#
+# This docker compose file installs the Community Edition of PAYLAY on your local dev machine.
+# For production purposes, please put all containers behind a Reverse Proxy with SSL.
+#
+# After completion you should be able to access the following endpoints from your browser.
+#
+# PaymentServer Swagger
+# http://localhost:28888/swagger
+#
+# Dashboard
+# http://localhost:28889
+#
+# IdentityServer discovery endpoint
+# http://localhost:28890/installation
+#
+version: '3.3'
+
+services:
+  identityserver:
+    image: paylay/identityserver:latest
+    ports:
+      - "28890:28890"
+    volumes:
+      - ${PAYLAY_DIR}:/var/tmp/paylay
+    command: ["run"]
+    restart: always
+    environment:
+      urls: http://*:28890
+      logging:loglevel:microsoft: debug
+      paylay:identityserver:rdbms: sqlite
+      paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
+      paylay:identityserver:authentication:authority: http://localhost:28890
+      # indicates that PAYLAY should generate a developer signing certificate. You should use your own signing certificates in production.
+      paylay:identityserver:signingcertificate:generatedevelopersigningcertificate: "true"
+      # in order to access the folder /installation. Disable after installation.
+      paylay:identityserver:installationmode:enabled: "true"
+  
+  paymentserver:
+    depends_on:
+      - identityserver
+    image: paylay/paymentserver:latest
+    ports:
+      - "28888:28888"
+    volumes:
+      - ${PAYLAY_DIR}:/var/tmp/paylay
+    restart: always
+    environment:
+      paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
+      paylay:paymentserver:rdbms: sqlite
+      paylay:paymentserver:authentication:authority: http://localhost:28890
+
+  dashboard:
+    depends_on:
+      - identityserver
+      - paymentserver
+    image: paylay/dashboard:latest
+    ports:
+      - "28889:28889"
+    links:
+      - "identityserver"
+      - "paymentserver"
+    command: ["run"]
+    restart: always
+    environment:
+      urls: http://*:28889
+      logging:loglevel:microsoft: debug
+      paylay:dashboard:paymentserver:uri: http://paymentserver:28888
+      paylay:dashboard:authentication:authority: http://identityserver:28890
+      paylay:dashboard:authentication:clientid: dashboard
+      # replace the client secret below with the secret issued during the PAYLAY IdentityServer installation process:
+      paylay:dashboard:authentication:clientsecret: YOUR_CLIENT_SECRET
+      paylay:dashboard:authentication:requirehttpsmetadata: "false"
+      paylay:dashboard:authentication:onredirecttoidentityprovider:authority: http://localhost:28890
