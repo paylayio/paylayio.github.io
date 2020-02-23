@@ -1,0 +1,37 @@
+#
+# This docker compose file installs the Community Edition of PAYLAY on your local dev machine.
+# For production purposes, please put all containers behind a Reverse Proxy with SSL.
+#
+
+version: '3.3'
+
+services:
+  identityserver:
+    image: paylay/identityserver:latest
+    ports:
+      - "28890:28890"
+    volumes:
+      - ${PAYLAY_DIR}:/var/tmp/paylay
+    command: ["run"]
+    environment:
+      urls: http://*:28890
+      logging:loglevel:microsoft: debug
+      paylay:identityserver:rdbms: sqlite
+      paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
+      paylay:identityserver:authentication:authority: http://localhost:28890
+      # indicates that PAYLAY should generate a developer signing certificate. You should use your own signing certificates in production.
+      paylay:identityserver:signingcertificate:generatedevelopersigningcertificate: "true"
+      # in order to access the folder /installation. Disable after installation.
+      paylay:identityserver:installationmode:enabled: "true"
+  
+  paymentserver:
+    depends_on:
+      - identityserver
+    image: paylay/paymentserver:latest
+    volumes:
+      - ${PAYLAY_DIR}:/var/tmp/paylay
+    command: ["install"]
+    environment:
+      paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
+      paylay:paymentserver:rdbms: sqlite
+      paylay:paymentserver:authentication:authority: http://localhost:28890
