@@ -26,14 +26,14 @@ services:
     restart: always
     environment:
       urls: http://*:28890
-      logging:loglevel:microsoft: debug
+      logging:loglevel:default: warning
+      logging:loglevel:microsoft: warning
       paylay:identityserver:rdbms: sqlite
       paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
       paylay:identityserver:authentication:authority: http://localhost:28890
       # indicates that PAYLAY should generate a developer signing certificate. You should use your own signing certificates in production.
       paylay:identityserver:signingcertificate:generatedevelopersigningcertificate: "true"
       # in order to access the folder /installation. Disable after installation.
-      paylay:identityserver:installationmode:enabled: "true"
   
   paymentserver:
     depends_on:
@@ -45,6 +45,8 @@ services:
       - ${PAYLAY_DIR}:/var/tmp/paylay
     restart: always
     environment:
+      logging:loglevel:default: warning
+      logging:loglevel:microsoft: warning
       paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
       paylay:paymentserver:rdbms: sqlite
       paylay:paymentserver:authentication:authority: http://identityserver:28890
@@ -63,7 +65,8 @@ services:
     restart: always
     environment:
       urls: http://*:28889
-      logging:loglevel:microsoft: debug
+      logging:loglevel:default: warning
+      logging:loglevel:microsoft: warning
       paylay:dashboard:paymentserver:uri: http://paymentserver:28888
       paylay:dashboard:authentication:authority: http://identityserver:28890
       paylay:dashboard:authentication:clientid: dashboard
