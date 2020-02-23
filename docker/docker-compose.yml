@@ -47,7 +47,7 @@ services:
     environment:
       paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
       paylay:paymentserver:rdbms: sqlite
-      paylay:paymentserver:authentication:authority: http://localhost:28890
+      paylay:paymentserver:authentication:authority: http://identityserver:28890
 
   dashboard:
     depends_on:
@@ -68,6 +68,6 @@ services:
       paylay:dashboard:authentication:authority: http://identityserver:28890
       paylay:dashboard:authentication:clientid: dashboard
       # replace the client secret below with the secret issued during the PAYLAY IdentityServer installation process:
-      paylay:dashboard:authentication:clientsecret: YOUR_CLIENT_SECRET
+      paylay:dashboard:authentication:clientsecret: 85e56d4b-ab8f-475a-b7e5-c71cd25727b3
       paylay:dashboard:authentication:allowunsafehttpcommunication: "true"
       paylay:dashboard:authentication:onredirecttoidentityprovider:authority: http://localhost:28890
