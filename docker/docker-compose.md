@@ -16,7 +16,7 @@ $env:PAYLAY_DIR="c:/temp"
 
 #### macOS
 ~~~
-export PAYLAY_DIR=/users/johndoe/tmp
+export PAYLAY_DIR=/tmp
 ~~~
 
 ## 2. Run installation.yml
