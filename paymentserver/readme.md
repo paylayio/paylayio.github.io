@@ -13,12 +13,6 @@ PaymentServer
 ## What is it?
 The PAYLAY PaymentServer application is a middleware for your eCommerce platform. Your eCommerce platform only needs to talk to the PaymentServer, which will then perform the heavy lifting of handling various eCommerce operations. This way, you can develop eCommerce processes before you have chosen a specific Payment Service Provider, easily switch to another Payment Service Provider without making code changes to your eCommerce platform, or support multiple Payment Service Providers.
 
-## Download
-You can pull the PaymentServer Community Edition by executing the following command:
-~~~
-docker pull paylay/paymentserver
-~~~
-
 ## Installation
 
 ### Prerequisites
@@ -29,18 +23,6 @@ The PaymentServer requires a database server to create a database in order to pe
 Each new version of the PaymentServer may come with small changes in the database scheme. These changes are applied automatically when you run the PaymentServer migration.
 
 [Supported Databases](#supported-databases)
-
-### Installation instructions
-In the following example, we will install the PaymentServer database schema to a Sqlite file.
-
-~~~
-docker run paylay/paymentserver install --conn "Data Source=/" --rdbms Sqlite
-~~~
-
-Perform the following instruction to start the PaymentServer:
-~~~
-docker run paylay/paymentserver run --conn "Data Source=/" --rdbms Sqlite
-~~~
 
 ## How it works
 The PaymentServer exposes a [REST API](rest-api.md). This is the single API interface to which your eCommerce platform(s) will talk to.

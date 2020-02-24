@@ -14,25 +14,6 @@ The IdentityServer requires a database for persisting data. The supported databa
 
 - Sqlite
 
-## Download
-Pull the image from Docker:
-
-~~~
-docker instruction will follow soon
-~~~
-
-Install IdentityServer:
-
-~~~
-docker instruction will follow soon
-~~~
-
-Run IdentityServer:
-
-~~~
-docker instruction will follow soon
-~~~
-
 ## Community vs Enterprise
 At the moment, PAYLAY only offers a Community Edition of the IdentityServer.
 
@@ -40,5 +21,4 @@ At the moment, PAYLAY only offers a Community Edition of the IdentityServer.
 
 | Feature           | Community |
 |-------------------|-----------|
-| In-Memory         | ✔️️        |
 | Sqlite            | ✔️️️️️        |
