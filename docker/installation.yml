@@ -19,6 +19,7 @@ services:
       paylay:identityserver:rdbms: sqlite
       paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
       paylay:identityserver:authentication:authority: http://localhost:28890
+      paylay:identityserver:authentication:allowunsafehttpcommunication: "true"
       # indicates that PAYLAY should generate a developer signing certificate. You should use your own signing certificates in production.
       paylay:identityserver:signingcertificate:generatedevelopersigningcertificate: "true"
       # in order to access the folder /installation. Disable after installation.
@@ -34,4 +35,3 @@ services:
     environment:
       paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
       paylay:paymentserver:rdbms: sqlite
-      paylay:paymentserver:authentication:authority: http://localhost:28890

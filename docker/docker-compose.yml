@@ -31,10 +31,10 @@ services:
       paylay:identityserver:rdbms: sqlite
       paylay:identityserver:connectionstring: Data Source=/var/tmp/paylay/identityserver.sqlite
       paylay:identityserver:authentication:authority: http://localhost:28890
+      paylay:identityserver:authentication:allowunsafehttpcommunication: "true"
       # indicates that PAYLAY should generate a developer signing certificate. You should use your own signing certificates in production.
       paylay:identityserver:signingcertificate:generatedevelopersigningcertificate: "true"
-      # in order to access the folder /installation. Disable after installation.
-  
+
   paymentserver:
     depends_on:
       - identityserver
@@ -50,6 +50,7 @@ services:
       paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
       paylay:paymentserver:rdbms: sqlite
       paylay:paymentserver:authentication:authority: http://identityserver:28890
+      paylay:paymentserver:authentication:allowunsafehttpcommunication: "true"
 
   dashboard:
     depends_on:
@@ -71,6 +72,6 @@ services:
       paylay:dashboard:authentication:authority: http://identityserver:28890
       paylay:dashboard:authentication:clientid: dashboard
       # replace the client secret below with the secret issued during the PAYLAY IdentityServer installation process:
-      paylay:dashboard:authentication:clientsecret: 85e56d4b-ab8f-475a-b7e5-c71cd25727b3
+      paylay:dashboard:authentication:clientsecret: {YOUR CLIENT SECRET}
       paylay:dashboard:authentication:allowunsafehttpcommunication: "true"
       paylay:dashboard:authentication:onredirecttoidentityprovider:authority: http://localhost:28890
