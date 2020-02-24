@@ -13,10 +13,22 @@ docker-compose -f installation.yml up
 
 This instruction will create and start 2 containers: the IdentityServer and PaymentServer.
 
-### 1.1 Database installation
-Navigate to the IdentityServer endpoint `http://localhost:28890/installation`, follow the instructions to install the database and create initial operational data.
+### Database installation
+Navigate to the IdentityServer endpoint
+~~~
+http://localhost:28890/installation
+~~~
 
-One of the final instructions is to copy the generated *client secret* and paste it into the `docker-compose.yml` file.
+Follow the instructions to install the database, and add an **initial user** and **client**.
+
+On the final screen, a generated **client secret** will be shown. Copy it.
+
+Now, open the file `docker-compose.yml`, find the key `paylay:dashboard:authentication:clientsecret:` and paste the **client secret** next to it.
+
+Example:
+~~~
+paylay:dashboard:authentication:clientsecret: YOUR_CLIENT_SECRET
+~~~
 
 After you have finished the installation, go back to the terminal and bring down the running containers.
 
