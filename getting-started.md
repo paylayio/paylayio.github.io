@@ -1,40 +1,59 @@
 # Getting Started
+The easiest way to run PAYLAY is to download the following Docker Compose files:
 
-## Introduction
-We have prepared a [PowerShell Core installation script](./powershell/install.ps1) that helps you set up the PAYLAY Community Edition ecosystem in minutes.
+- [installation.yml](docker/installation.yml)
+- [docker-compose.yml](docker/docker-compose.yml)
 
-What will the script do in general?
-- it will pull the latest Docker images of our 3 core applications
-- install the applications (a Sqlite database is generated wherever this is needed)
-- generate self-signed certificates
-- install the self-signed certificates to your local certificate store
+Fire up a terminal or commandline and get started.
 
-### Prerequisites
-- You have Docker Desktop installed
-- The script will automatically run the containers for installation purposes. You could run into folder mounting issues (such as `Error response from daemon: Mounts denied`) if Docker does not have the correct folder permissions.
-
-### Prerequisites for macOS
-In order to run the installation script, you need to have PowerShell Core installed on your Mac.
-
-You can install PowerShell Core using Homebrew.
-
-If the `brew` command is not found, then please [install Homebrew first](https://brew.sh).
-
-~~~ bash
-brew cask install powershell
+## 1. Run installation.yml
+~~~
+docker-compose -f installation.yml up
 ~~~
 
-After that, fire up PowerShell Core:
-~~~ bash
-pwsh
+This instruction will create and start 2 containers: the IdentityServer and PaymentServer.
+
+### Database installation
+Navigate to the IdentityServer endpoint
+~~~
+http://localhost:28890/installation
 ~~~
 
-### Installation instructions
-Fire up PowerShell, navigate to the directory where the installation script is located, and type in:
+Follow the instructions to install the database, and add an **initial user** and **client**.
+
+On the final screen, a generated **client secret** will be shown. Copy it.
+
+Now, open the file `docker-compose.yml`, find the key `paylay:dashboard:authentication:clientsecret:` and paste the **client secret** next to it.
+
+Example:
 ~~~
-./install.ps1
+paylay:dashboard:authentication:clientsecret: YOUR_CLIENT_SECRET
 ~~~
 
-That's it!
+After you have finished the installation, go back to the terminal and bring down the running containers.
 
-Follow the instructions during the installation and happy coding!
+## 2. Run docker-compose.yml
+Next, run the following command to start all 3 containers (IdentityServer, PaymentServer and Dashboard):
+
+~~~
+docker-compose up
+~~~
+
+The following endpoints should be available:
+
+**Dashboard**
+~~~
+http://localhost:28889
+~~~
+
+**PaymentServer**
+The Swagger endpoint should be available:
+~~~
+http://localhost:28888/swagger
+~~~
+
+**IdentityServer**
+The discovery endpoint should be available:
+~~~
+http://localhost:28890/.well-known/openid-configuration
+~~~
