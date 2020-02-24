@@ -21,7 +21,7 @@ services:
     ports:
       - "28890:28890"
     volumes:
-      - ${PAYLAY_DIR}:/var/tmp/paylay
+      - identityserver_db:/var/tmp/paylay
     command: ["run"]
     restart: always
     environment:
@@ -42,7 +42,7 @@ services:
     ports:
       - "28888:28888"
     volumes:
-      - ${PAYLAY_DIR}:/var/tmp/paylay
+      - paymentserver_db:/var/tmp/paylay
     restart: always
     environment:
       logging:loglevel:default: warning
@@ -72,6 +72,10 @@ services:
       paylay:dashboard:authentication:authority: http://identityserver:28890
       paylay:dashboard:authentication:clientid: dashboard
       # replace the client secret below with the secret issued during the PAYLAY IdentityServer installation process:
-      paylay:dashboard:authentication:clientsecret: {YOUR CLIENT SECRET}
+      paylay:dashboard:authentication:clientsecret: YOUR_CLIENT_SECRET
       paylay:dashboard:authentication:allowunsafehttpcommunication: "true"
       paylay:dashboard:authentication:onredirecttoidentityprovider:authority: http://localhost:28890
+
+volumes:
+  identityserver_db:
+  paymentserver_db:

@@ -11,7 +11,7 @@ services:
     ports:
       - "28890:28890"
     volumes:
-      - ${PAYLAY_DIR}:/var/tmp/paylay
+      - identityserver_db:/var/tmp/paylay
     command: ["run"]
     environment:
       urls: http://*:28890
@@ -30,8 +30,13 @@ services:
       - identityserver
     image: paylay/paymentserver:latest
     volumes:
-      - ${PAYLAY_DIR}:/var/tmp/paylay
+      - paymentserver_db:/var/tmp/paylay
     command: ["install"]
     environment:
       paylay:paymentserver:connectionstring: Data Source=/var/tmp/paylay/paymentserver.sqlite
       paylay:paymentserver:rdbms: sqlite
+      paylay:paymentserver:authentication:authority: http://identityserver:28890
+
+volumes:
+  identityserver_db:
+  paymentserver_db:

@@ -1,45 +1,24 @@
 # Run PAYLAY using Docker Compose
 The easiest way to run PAYLAY is to download the following Docker Compose files:
 
-[installation.yml](installation.yml)
-[docker-compose.yml](docker-compose.yml)
+- [installation.yml](installation.yml)
+- [docker-compose.yml](docker-compose.yml)
 
 Fire up a terminal or commandline and get started.
 
-## 1. Set environment variable
-First, set an environment variable called `PAYLAY_DIR`.
-
-#### Windows cmd
-~~~
-set PAYLAY_DIR=c:\temp
-~~~
-
-#### Windows PowerShell
-~~~
-$env:PAYLAY_DIR="c:\temp"
-~~~
-
-#### macOS
-~~~
-export PAYLAY_DIR=/tmp
-~~~
-
-## 2. Run installation.yml
+## 1. Run installation.yml
 ~~~
 docker-compose -f installation.yml up
 ~~~
 
 This instruction will create and start 2 containers: the IdentityServer and PaymentServer.
 
-The PaymentServer installation will happen on the background: a Sqlite database file will be created and written to the specified `PAYLAY_DIR`.
+### 2.1 Database installation
+Navigate to the IdentityServer endpoint `http://localhost:28890/installation`, follow the instructions to install the database and create initial operational data.
 
-### 2.1 Install IdentityServer
-The IdentityServer endpoint `http://localhost:28890` should be available.
+One of the final instructions is to copy the generated *client secret* and paste it into the `docker-compose.yml` file.
 
-Navigate to `http://localhost:28890/installation` and follow the instructions.
-One of the final instructions is to copy the *client secret* and paste it into the `docker-compose.yml` file.
-
-After you have finished the instructions, go back to the terminal and stop the 2 running containers by simply pressing `CTRL+C`.
+After you have finished the installation, go back to the terminal and bring down the running containers.
 
 ## 3. Run docker-compose.yml
 Next, run the following command to start all 3 containers (IdentityServer, PaymentServer and Dashboard):
