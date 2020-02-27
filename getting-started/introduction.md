@@ -5,6 +5,7 @@ parent: Getting Started
 nav_order: 1
 ---
 # Introduction
+{: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
