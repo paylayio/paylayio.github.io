@@ -9,5 +9,5 @@ permalink: /
 # PAYLAY
 
 ## New to PAYLAY?
+
 [Learn about PAYLAY, its concepts and possibilities](/getting-started)
-{: .fs-6 .fw-300 }
