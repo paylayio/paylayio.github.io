@@ -1,3 +1,10 @@
+---
+layout: default
+title: Docker
+parent: Getting Started
+nav_order: 2
+---
+
 # Docker
 The easiest way to run PAYLAY CE is to download the following Docker Compose files:
 

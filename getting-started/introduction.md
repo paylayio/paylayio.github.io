@@ -1,3 +1,10 @@
+---
+layout: default
+title: Introduction
+parent: Getting Started
+nav_order: 1
+---
+
 # Introduction
 PAYLAY is a complete Payments Framework solution for easily developing and integrating payment processes into your organisation's platform:
 - connect to Leading Payment Service Providers
