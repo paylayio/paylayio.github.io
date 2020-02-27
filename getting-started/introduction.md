@@ -4,6 +4,7 @@ title: Introduction
 parent: Getting Started
 nav_order: 1
 ---
+# Introduction
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -11,7 +12,6 @@ nav_order: 1
 1. TOC
 {:toc}
 
-# Introduction
 PAYLAY is a complete Payments Framework solution for easily developing and integrating payment processes into your organisation's platform:
 - connect to Leading Payment Service Providers
 - connect to Messaging Systems
