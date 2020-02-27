@@ -5,6 +5,12 @@ parent: Getting Started
 nav_order: 1
 ---
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 # Introduction
 PAYLAY is a complete Payments Framework solution for easily developing and integrating payment processes into your organisation's platform:
 - connect to Leading Payment Service Providers
@@ -25,21 +31,21 @@ This means that when you need a new Payment Provider there is no need to read th
 
 You can compare this to the programming concept of _interface_ and _classes_. PAYLAY acts as the interface, whereas each Payment Provider is a concrete implementation.
 
-## High Level Overview
-Okay, let's go through a high level overview of PAYLAY:
-
-### Microservices Architecture
+## Microservices Architecture
 The PAYLAY ecosystem was designed and built according to a microservices architecture.
 
 It consists of a collection of independently deployable services, with each service serving a specific function.
 
 We have the following microservices:
 
-The [PaymentServer](/paymentserver/readme.md) is a headless microservice that exposes a [REST API](/paymentserver/rest-api.md) that allows your application to perform payment requests without having to know the specific implementation details of the payment provider.
+### [PaymentServer](/paymentserver/readme)
+Headless microservice that exposes a [REST API](/paymentserver/rest-api.md) that allows your application to perform payment requests without having to know the specific implementation details of the payment provider.
 
-The [Dashboard](/dashboard/readme.md) microservice depends on the PaymentServer and acts as the presentation layer of the PaymentServer. It allows the user to configure API keys, view real-time payment information, perform refunds, etc.
+### [Dashboard](/dashboard/readme)
+This microservice depends on the PaymentServer and acts as the presentation layer of the PaymentServer. It allows the user to configure API keys, view real-time payment information, perform refunds, etc.
 
-The [IdentityServer](/identityserver/readme.md) microservice is an authentication system that allows users to _Single Sign On_ into the PAYLAY ecosystem.
+### [IdentityServer](/identityserver/readme)
+This microservice acts as the authentication provider that allows users to _Single Sign On_ into the PAYLAY ecosystem.
 
 _We will insert some nice architecture image here_ (soon hopefully 😅)
 
@@ -47,13 +53,13 @@ We expect to have more microservices in the future that will extend the possibil
 
 If you wish to develop microservices for the PAYLAY ecosystem, please contact us at info[at]paylay.io
 
-### Docker
+## Docker
 All microservices are available via Docker images. They can be deployed to any environment that supports containerization: on-premise or in the cloud.
 
-### Database
+## Database
 Similar to Payment Providers, each PAYLAY microservices will support a set of Database Providers such as MySql and SqlServer.
 
-### Community vs Enterprise
+## Community vs Enterprise
 PAYLAY is available as a Community Edition (CE) and an Enterprise Edition (EE).
 
 The CE comes with a smaller set of supported Payment Providers and Database Providers.
@@ -61,4 +67,4 @@ The CE comes with a smaller set of supported Payment Providers and Database Prov
 ## Try out PAYLAY yourself
 We believe that the best way to understand PAYLAY is to simply try it out.
 
-We have written a [concise Docker Guide](/getting-started/docker.md) where you can install PAYLAY on your **local dev machine** in matter of minutes.
+We have written a [concise Docker Guide](/getting-started/docker) where you can install PAYLAY on your **local dev machine** in matter of minutes.
