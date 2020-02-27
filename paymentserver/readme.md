@@ -1,3 +1,11 @@
+---
+layout: default
+title: PaymentServer
+nav_order: 3
+has_children: true
+permalink: paymentserver
+---
+
 PaymentServer
 =============
 {: .no_toc }
