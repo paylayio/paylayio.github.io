@@ -1,8 +1,8 @@
-# Getting Started
+# Docker
 The easiest way to run PAYLAY CE is to download the following Docker Compose files:
 
-- [installation.yml](docker/installation.yml)
-- [docker-compose.yml](docker/docker-compose.yml)
+- [installation.yml](/docker/installation.yml)
+- [docker-compose.yml](/docker/docker-compose.yml)
 
 Fire up a terminal or commandline and get started.
 
