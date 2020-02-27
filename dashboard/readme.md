@@ -1,5 +1,13 @@
-Dashboard
-=========
+---
+layout: default
+title: Dashboard
+nav_order: 4
+has_children: true
+permalink: dashboard
+---
+
+# Dashboard
+
 The Dashboard is a front-end application that allows you to interact with the [PaymentServer](PaymentServer.md) in order to query payment information &amp; statistics, and configure the PaymentServer.
 
 ## Main Features

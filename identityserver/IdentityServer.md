@@ -1,5 +1,11 @@
-IdentityServer
-==============
+---
+layout: default
+title: IdentityServer
+nav_order: 5
+has_children: true
+permalink: identityserver
+---
+# IdentityServer
 
 An OpenID Connect provider plays a **central part** in the PAYLAY ecosystem. All PAYLAY apps require this for authentication and authorization.
 
