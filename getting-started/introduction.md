@@ -39,13 +39,13 @@ It consists of a collection of independently deployable services, with each serv
 
 We have the following microservices:
 
-### [PaymentServer](/paymentserver/readme)
-Headless microservice that exposes a [REST API](/paymentserver/rest-api.md) that allows your application to perform payment requests without having to know the specific implementation details of the payment provider.
+### [PaymentServer](/paymentserver)
+Headless microservice that exposes a [REST API](/paymentserver/rest-api) that allows your application to perform payment requests without having to know the specific implementation details of the payment provider.
 
-### [Dashboard](/dashboard/readme)
+### [Dashboard](/dashboard)
 This microservice depends on the PaymentServer and acts as the presentation layer of the PaymentServer. It allows the user to configure API keys, view real-time payment information, perform refunds, etc.
 
-### [IdentityServer](/identityserver/readme)
+### [IdentityServer](/identityserver)
 This microservice acts as the authentication provider that allows users to _Single Sign On_ into the PAYLAY ecosystem.
 
 _We will insert some nice architecture image here_ (soon hopefully 😅)
