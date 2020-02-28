@@ -28,7 +28,7 @@ PAYLAY already did the heavy lifting for you: we have implemented a set of Payme
 
 So once you have implemented PAYLAY, you can simply pick a Payment Provider and start processing payments.
 
-This means that when you need a new Payment Provider there is no need to read through lenghty documentation (again) 👍 Not only did it save you time, you now have more time for coding ❤️
+This means that when you need a new Payment Provider there is no need to read through lengthy documentation (again) 👍 Not only did it save you time, you now have more time for coding ❤️
 
 You can compare this to the programming concept of _interface_ and _classes_. PAYLAY acts as the interface, whereas each Payment Provider is a concrete implementation.
 
@@ -68,4 +68,4 @@ The CE comes with a smaller set of supported Payment Providers and Database Prov
 ## Try out PAYLAY yourself
 We believe that the best way to understand PAYLAY is to simply try it out.
 
-We have written a [concise Docker Guide](/getting-started/docker) where you can install PAYLAY on your **local dev machine** in matter of minutes.
+We have written a [concise installation guide](/getting-started/install-paylay-ce) where you can install all PAYLAY microservices on your **local dev machine** in matter of minutes.
