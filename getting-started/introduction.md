@@ -58,7 +58,7 @@ If you wish to develop microservices for the PAYLAY ecosystem, please contact us
 All microservices are available via Docker images. They can be deployed to any environment that supports containerization: on-premise or in the cloud.
 
 ## Database
-Similar to Payment Providers, each PAYLAY microservices will support a set of Database Providers such as MySql and SqlServer.
+PAYLAY microservices that require a database could support a set of Database Providers such as MySql and SqlServer.
 
 ## Community vs Enterprise
 PAYLAY is available as a Community Edition (CE) and an Enterprise Edition (EE).
