@@ -6,7 +6,6 @@ description: ""
 permalink: /
 ---
 
-# PAYLAY
+**New to PAYLAY?**
 
-## New to PAYLAY?
 [Learn about PAYLAY, its concepts and possibilities](/getting-started)

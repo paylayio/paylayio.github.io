@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Docker
+title: Install PAYLAY CE
 parent: Getting Started
 nav_order: 2
 ---
 
-# Docker
-The easiest way to run PAYLAY CE is to download the following Docker Compose files:
+# Install PAYLAY CE
+The easiest way to install PAYLAY CE is to download the following Docker Compose files:
 
 - [installation.yml](/docker/installation.yml)
 - [docker-compose.yml](/docker/docker-compose.yml)
 
-Fire up a terminal or commandline and get started.
+Fire up a terminal or commandline to get started.
 
 ## 1. Run installation.yml
 ~~~
@@ -64,3 +64,8 @@ The discovery endpoint should be available:
 ~~~
 http://localhost:28890/.well-known/openid-configuration
 ~~~
+
+## Next up
+Congratulations, you have just installed PAYLAY CE on your local development machine.
+
+Proceed with the [tutorial](tutorial.md) on how to create your first payment.
