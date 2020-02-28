@@ -20,6 +20,8 @@ docker-compose -f installation.yml up
 
 This instruction will create and start 2 containers: the IdentityServer and PaymentServer.
 
+💡If you have installed PAYLAY before using `docker-compose`, then you might want to do `docker-compose pull` to pull the latest images, as your version might be out of sync with the instructions of this document.
+
 ### Database installation
 Navigate to the IdentityServer endpoint
 ~~~
