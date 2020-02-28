@@ -2,7 +2,7 @@
 layout: default
 title: Tutorial
 parent: Getting Started
-nav_order: 1
+nav_order: 3
 ---
 # Tutorial
 {: .no_toc }
@@ -66,4 +66,4 @@ Click on the **Lock** icon and enter the API Key of the Integration that you jus
 #### 2.2. Call PaymentRequest
 Find the `POST /api/Payment` endpoint to create a new payment.
 
-The `PaymentRequest` and `PaymentRequestResponse` schemas are well-documented in the Swagger tool.
+The `PaymentRequest` and `PaymentRequestResponse` schemas ares well-documented in the Swagger tool.
