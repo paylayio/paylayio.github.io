@@ -28,7 +28,7 @@ PAYLAY already did the heavy lifting for you: we have implemented a set of Payme
 
 So once you have implemented PAYLAY, you can simply pick a Payment Provider and start processing payments.
 
-This means that when you need a new Payment Provider there is no need to read through lengthy documentation (again) 👍 Not only did it save you time, you now have more time for coding ❤️
+This means that when you need a new Payment Provider there is no need to read through lengthy documentation (again) 👍 Not only will it save you time, you now have more time for coding ❤️
 
 You can compare this to the programming concept of _interface_ and _classes_. PAYLAY acts as the interface, whereas each Payment Provider is a concrete implementation.
 
