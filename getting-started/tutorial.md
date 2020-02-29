@@ -60,9 +60,14 @@ http://localhost:28888/swagger
 
 ### 2.1. Set API Key
 
-Click on the **Lock** icon and enter the API Key of the Integration that you just created.
+![screenshot](/images/screenshots/swagger-top.png)
+
+Click on the **Authorize** button with lock icon and enter the API Key of the Integration that you just created.
 
 ### 2.2. Call PaymentRequest
+
+![screenshot](/images/screenshots/swagger-post-api-payment.png)
+
 Find the `POST /api/Payment` endpoint to create a new payment.
 
-The `PaymentRequest` and `PaymentRequestResponse` schemas ares well-documented in the Swagger tool.
+The `PaymentRequest` and `PaymentRequestResponse` schemas ares well-documented in the Swagger tool, so please use the Swagger tool as your main source of documentation.

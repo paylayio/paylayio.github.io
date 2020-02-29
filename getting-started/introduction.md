@@ -60,6 +60,9 @@ All microservices are available via Docker images. They can be deployed to any e
 ## Database
 PAYLAY microservices that require a database could support a set of Database Providers such as MySql and SqlServer.
 
+## AppSettings
+Each microservice can be configured for your specific use case using environment variables, or JSON configuration files.
+
 ## Community vs Enterprise
 PAYLAY is available as a Community Edition (CE) and an Enterprise Edition (EE).
 
