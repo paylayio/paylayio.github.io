@@ -2,7 +2,7 @@
 layout: default
 title: AppSettings
 parent: PaymentServer
-nav_order: 4
+nav_order: 10
 ---
 
 # AppSettings
@@ -15,10 +15,10 @@ The following keys can be set via environment variables, or the AppSettings JSON
 
 ### paylay:paymentserver:rdbms
 Indicates the database provider to use.
-Supported values: `sqlite` (CE), `mysql` (EE), `sqlserver` (EE)
+Supported values: `sqlite` (CE/EE), `mysql` (EE), `sqlserver` (EE)
 
 ### paylay:paymentserver:connectionstring
-The connection string needed to connect to the database provider, e.g. `Data Source=/tmp/database.sqlite`
+The connection string needed to connect to the database provider, e.g. `DataSource=/tmp/db.sqlite`
 
 ### paylay:paymentserver:publicwebhookhost
 Set the public facing host of the PaymentServer. This value is **important** because it is needed in order to receive webhooks from Payment Providers.

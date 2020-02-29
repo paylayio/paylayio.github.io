@@ -2,7 +2,7 @@
 layout: default
 title: REST API
 parent: PaymentServer
-nav_order: 2
+nav_order: 20
 ---
 # REST API
 

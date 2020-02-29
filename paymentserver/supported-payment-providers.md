@@ -2,7 +2,7 @@
 layout: default
 title: Supported Payment Providers
 parent: PaymentServer
-nav_order: 3
+nav_order: 30
 ---
 # Supported Payment Providers
 
