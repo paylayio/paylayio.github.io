@@ -13,10 +13,10 @@ nav_order: 4
 1. TOC
 {:toc}
 
-## Sources
-You can use AppSettings to configure each PAYLAY microservice.
+## Configuration sources
+Each PAYLAY microservice is configurable. Configuration is based on key-value pairs. We refer to Configuration as **AppSettings**.
 
-AppSettings are loaded (by all microservices) using several sources, in the following order:
+Key-value pairs are loaded from a variety of sources, in the following order:
 
 **1. appsettings.json**
 
@@ -37,7 +37,7 @@ Pass environment variables to the PAYLAY microservice using Docker's environment
 💡It is important to know that source 3 overwrites appsettings from source 2, and so on.
 
 ## .NET Core AppSettings
-PAYLAY microservices are built on top of .NET Core. Therefore, you can really finetune the internal components of the microservices.
+PAYLAY microservices are built on top of .NET Core. Therefore, you can also configure the internal components of the microservices.
 
 ### Kestrel
 All microservices internally use the [Kestrel webserver](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-3.1). If needed, you can customize Kestrel's behavior.
