@@ -60,3 +60,6 @@ or if you wish to use environment variables:
 kestrel:certificates:default:path=cert.p12
 kestrel:certificates:default:password=secret
 ~~~
+
+### Logging
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1
