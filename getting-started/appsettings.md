@@ -14,7 +14,7 @@ nav_order: 4
 {:toc}
 
 ## Configuration sources
-Each PAYLAY microservice is configurable. Configuration is based on key-value pairs. We refer to Configuration as **AppSettings**.
+Each PAYLAY microservice is configurable. Configuration is based on key-value pairs. We refer to application configuration as **AppSettings**.
 
 Key-value pairs are loaded from a variety of sources, in the following order:
 
