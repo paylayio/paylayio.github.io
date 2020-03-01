@@ -16,7 +16,7 @@ nav_order: 4
 ## Sources
 You can use AppSettings to configure each PAYLAY microservice.
 
-AppSettings are loaded by all microservices using several sources, in the following order:
+AppSettings are loaded (by all microservices) using several sources, in the following order:
 
 **1. appsettings.json**
 
