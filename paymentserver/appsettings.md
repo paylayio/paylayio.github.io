@@ -19,11 +19,12 @@ paylay:paymentserver:rdbms
 # Supported values: `sqlite` (CE/EE), `mysql` (EE), `sqlserver` (EE)
 
 paylay:paymentserver:connectionstring
-# The connection string needed to connect to the database provider, e.g. "DataSource=/tmp/db.sqlite"
+# The connection string needed to connect to the database provider,
+# e.g. "DataSource=/tmp/db.sqlite"
 
 paylay:paymentserver:publicwebhookhost
 # Set the public facing host of the PaymentServer.
-# This value is **important** because it is needed in order to receive webhooks from Payment Providers.
+# This value is *important* because it is needed in order to receive webhooks from Payment Providers.
 
 paylay:paymentserver:testing:enabled
 # A boolean value indicating that the PAYLAY Test Provider is enabled.
@@ -43,6 +44,9 @@ paylay:paymentserver:connectors:notificationproviders:rabbitmq:username
 
 paylay:paymentserver:connectors:notificationproviders:rabbitmq:password
 # The password to use for login.
+
+paylay:paymentserver:swagger:enabled
+# A boolean value indicating if the Swagger endpoint should be available.
 ~~~
 
 
