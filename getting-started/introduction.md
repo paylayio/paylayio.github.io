@@ -13,18 +13,24 @@ nav_order: 1
 1. TOC
 {:toc}
 
-PAYLAY is a complete Payments Framework solution for easily developing and integrating payment processes into your organisation's platform:
+## Audience
+This guide was written for developers and people in technical roles. 
+
+## What is it?
+
+PAYLAY is a complete Payments Framework solution for easily developing and integrating payment processes into your organisation's software platform:
 - connect to Leading Payment Service Providers
 - connect to Messaging Systems
 - supports Leading Database Providers
 
-## Audience
-This guide was written for developers and people in technical roles. 
+The following high level illustration should give you a pretty good summary of what PAYLAY is.
+
+![alt text](/images/diagrams/architecture-summary.png "OpenID Connect logo")
 
 ## Why PAYLAY?
 The PAYLAY ecosystem acts as an *abstract payment layer* to which your application communicates with, instead of directly connecting to payment providers.
 
-PAYLAY already did the heavy lifting for you: we have implemented a set of Payment Providers.
+PAYLAY already did the heavy lifting for you: we have implemented a set of Payment Providers and will proactively add more.
 
 So once you have implemented PAYLAY, you can simply pick a Payment Provider and start processing payments.
 
@@ -47,8 +53,6 @@ This microservice depends on the PaymentServer and acts as the presentation laye
 
 ### [IdentityServer](/identityserver)
 This microservice acts as the authentication provider that allows users to _Single Sign On_ into the PAYLAY ecosystem.
-
-_We will insert some nice architecture image here_ (soon hopefully 😅)
 
 We expect to have more microservices in the future that will extend the possibility of PAYLAY.
 
