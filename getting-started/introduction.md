@@ -25,7 +25,7 @@ PAYLAY is a complete Payments Framework solution for easily developing and integ
 
 The following high level illustration should give you a pretty good summary of what PAYLAY is.
 
-![alt text](/images/diagrams/architecture-summary.png "OpenID Connect logo")
+![alt text](/images/diagrams/architecture-summary.png "PAYLAY Architecture")
 
 ## Why PAYLAY?
 The PAYLAY ecosystem acts as an *abstract payment layer* to which your application communicates with, instead of directly connecting to payment providers.
